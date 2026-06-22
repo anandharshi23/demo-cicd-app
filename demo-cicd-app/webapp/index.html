@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CI/CD Demo App</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "72", Arial, sans-serif;
+      background: linear-gradient(135deg, #0a3d62, #1e8449);
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #ffffff;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 16px;
+      padding: 48px 56px;
+      text-align: center;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    p {
+      margin: 4px 0;
+      opacity: 0.85;
+    }
+    .badge {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: #27ae60;
+      font-size: 13px;
+      letter-spacing: 0.5px;
+    }
+    .version {
+      margin-top: 16px;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🚀 CI/CD Pipeline Demo</h1>
+    <p>This app was deployed automatically via GitHub Actions + Cloud Foundry CLI.</p>
+    <p>No manual <code>cf push</code> required.</p>
+    <span class="badge">Deployed Automatically</span>
+    <div class="version">Build marker: v1</div>
+  </div>
+</body>
+</html>

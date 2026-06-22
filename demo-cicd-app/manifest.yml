@@ -1,0 +1,8 @@
+applications:
+  - name: demo-cicd-app
+    memory: 128M
+    disk_quota: 256M
+    buildpacks:
+      - staticfile_buildpack
+    path: ./webapp
+    random-route: true

@@ -1,0 +1,31 @@
+name: Deploy to Cloud Foundry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install CF CLI
+        run: |
+          curl -L -o cf-cli.tar.gz "https://packages.cloudfoundry.org/stable?release=linux64-binary&source=github"
+          tar -xvzf cf-cli.tar.gz
+          sudo mv cf /usr/local/bin/cf
+          cf --version
+
+      - name: Login to Cloud Foundry
+        run: |
+          cf login -a "${{ secrets.CF_API }}" \
+                    -u "${{ secrets.CF_USERNAME }}" \
+                    -p "${{ secrets.CF_PASSWORD }}" \
+                    -o "${{ secrets.CF_ORG }}" \
+                    -s "${{ secrets.CF_SPACE }}"
+
+      - name: Deploy app
+        run: cf push
