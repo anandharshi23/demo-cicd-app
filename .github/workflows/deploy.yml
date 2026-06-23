@@ -16,7 +16,9 @@ jobs:
         run: |
           curl -L -o cf-cli.tar.gz "https://packages.cloudfoundry.org/stable?release=linux64-binary&source=github"
           tar -xvzf cf-cli.tar.gz
-          sudo mv cf /usr/local/bin/cf
+          ls -la
+          if [ -f cf8 ]; then sudo mv cf8 /usr/local/bin/cf; fi
+          if [ -f cf ]; then sudo mv cf /usr/local/bin/cf; fi
           cf --version
 
       - name: Login to Cloud Foundry
